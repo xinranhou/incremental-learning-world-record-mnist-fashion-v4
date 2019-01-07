@@ -14,6 +14,8 @@ Let me explanation: (English & Chinese/中文)
    我们这个数据集和任务，有10个类需要去分类。
 2. there is a better network, can get 96.7%; in fact, we can use more tricks to get 97.0%.  not very difficult.
    已经有一个（些）好的网络，能够达到96.7（参见数据集官网，我们前面提交的网络），事实上，我们能够试探一些其他的技巧达到97.%，不是特别难。
+   如果你这一步做不到，也不知道为啥，那么建议你先去补充基础部分。
+   
 3. later, let us try our ideas：
    接下来，让我们试试我们的做法：
 4. decompose the classifition task from one-network-ten-classes to n(a1+a(n-2))/2=10(1+8)/2=45 one-one-classification-nerworks.
@@ -22,14 +24,16 @@ Let me explanation: (English & Chinese/中文)
    X --> One-Network --> Y(0...9)
    now: 现在
    X --> 45-Difference-Mini-Network --> M((0,1),(0,2),...(1,2),...(8,9))  --> Vote-Routing/Or/Emsemble-Network  --> Y
+   again: 45只是最直接的组合方式，可以使用任何组合或者其他技巧来减少这个类。另外，简单的类别的区分用的网络小多了；再另外，底层视觉特征的提取可以同用网络，在高层偏全连接的地方使用不同的网络；一句话，分解之后的网络，可以比大一统网络的参数量反而小很多。
 5. how to get better score: 如何刷成绩？
-   subnet: 0-1:   achieve, > 99.*
-   ......  *-*:   achieve, > 99.*
+   subnet: 0-1:   achieve, >>> 99.*
+   ......  *-*:   achieve, >>> 99.*
    subnet: 2-6    difficult,  >96.7  (one-one-pk, is very easy vs. big-network, any trick you can use!) 一对一PK比一网络搞定全分类简单多了
-   ......  *-*:   achieve, > 99.*
+   ......  *-*:   achieve, >>> 99.*
    subnet: 4-6    difficult,  >96.7  (one-one-pk, is very easy vs. big-network, any trick you can use!)
-   ......  *-*:   achieve, > 99.*
-   subnet: 8-9:   achieve, > 99.*
+   ......  *-*:   achieve, >>> 99.*
+   subnet: 8-9:   achieve, >>> 99.*
+   实际上：6-4，6-2是最难区分的，其次是4-2,其次是0和他们的组合。
    
    Note: for A-pk-B network, if you give a C, almost it will give you a random result between A and B. It is OK for later voting.
    注意：对于一个只认识A，B的网络，如果你给一个C，基本上会近似随机挑选的方式从A,B中选择,这是对后面的投票阶段来说，我不认识我就随机选。
@@ -37,9 +41,9 @@ Let me explanation: (English & Chinese/中文)
    give a test-sample,such as 8:
    假设给一个测试样本比如8:
    there are 9 subnetworks trained by *-9 will vote: (0,8)...(8,9), and, most of them will vote 8 with high-probability and has generalization-baseline.  
-   其中9个与于8区分的小网络，他们大部分都会高概率的投出8，这个泛化是由底线的。
+   其中9个与于8区分的小网络，他们“大部分都会高^2概率的投出8，这个泛化是有底线的”。
    there are rest 45-9 subnetworks will not vote 8 with high-probability.
-   其他45-9个网络与8无关的，基本也不会投出8来。
+   其他45-9=36个网络与8无关的，“基本也不会投出8来”。
 7. so the final result will be better.
    所以，最终结果比较好。
    
