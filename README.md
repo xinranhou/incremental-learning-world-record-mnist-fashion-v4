@@ -16,7 +16,7 @@ key ideas:
       Train: Y = f(X,Y)   #one-by-one  
       Test: Y = f(X,?)  #vote Y on ?
 
-   智能的核心之一，就是策略组织，将不确定性的高组织策略到确定性高的。
+   智能的核心之一，就是策略组织，将不确定性高的-->组织策略到-->确定性高的。
 
 Let me explan: (English & Chinese/中文)
 1. this dataset and task, there are 10 classes.
