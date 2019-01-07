@@ -13,11 +13,11 @@ Let me explanation: (English & Chinese/中文)
 1. this dataset and task, there are 10 classes.
    我们这个数据集和任务，有10个类需要去分类。
 2. there is a better network, can get 96.7%; in fact, we can use more tricks to get 97.0%.  not very difficult.
-   已经有一个（些）好的网络，能够达到96.7（参加数据集官网，我们前面提交的网络），事实上，我们能够试探一些其他的技巧达到97.%，不是特别难。
+   已经有一个（些）好的网络，能够达到96.7（参见数据集官网，我们前面提交的网络），事实上，我们能够试探一些其他的技巧达到97.%，不是特别难。
 3. later, let us try our ideas：
    接下来，让我们试试我们的做法：
 4. decompose the classifition task from one-network-ten-classes to n(a1+a(n-2))/2=10(1+8)/2=45 one-one-classification-nerworks.
-   分解分类任务，从一个大网络搞定10类，到“等差数据公式公式”算一下需要的两两PK的小网络组合。
+   分解分类任务，从一个大网络搞定10类，到“等差数据公式”算一下需要的两两PK的小网络组合。
    before: 以前
    X --> One-Network --> Y(0...9)
    now: 现在
