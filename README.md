@@ -77,3 +77,4 @@ we can use human-readable code like we submited or NN code like our brain create
 In Chinese:
 这些搞法，并不是这个只适用于这个数据集，或者这个任务；这是一个通用的做法。
 至于如何实现，可以用我们提交的代码展示的方法，这个一般程序员都很容易看懂都理解；也可以像造物主那样，什么东西都用大脑来搞定: NLU-generate, NLU-copy, XXX-sort, 所以我们这个分类任务中的分解动作，逻辑是比较确定的，我们的意识也能感知到我们在这么处理问题。
+
