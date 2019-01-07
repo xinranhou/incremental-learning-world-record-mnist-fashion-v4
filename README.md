@@ -1,5 +1,7 @@
 # incremental-learning-world-record-mnist-fashion-v4
 
+accuracy score from 98.0 ~ 99.*
+
 one of our ideas is: if the total task is difficult, we can use some simple sub-network to do, any combinition is OK(one-one, tree, etc.) we think human can use this ability, one of our brain's abilities is using neurals to flexible-organize under some biger framwork, not today's NN paradigm: overemphasize end-2-end in a whole network.
 
 if you guys understand our ideas, you can see, most of classes are SIMPLE to classify, we can use above we mentioned simplest FULL-CONNECTION to classify and get almost 99.9...9%. we can just focus on these classes PK(from difficult to simple) use ‘DIFFERENCE NN-Architecute，DIFFERENCE NN-Instances, DIFFERENCE NN-Instance-with RANDOM-SEED’ (This seed is MOST-IMPORTANT, not a joke.)：
