@@ -8,12 +8,20 @@ key ideas:
    subnetwork promote independently.
    you can think this is a specilal type of ensemble, but we still think there are many difference.
    the total parameters is NOT a problem, you can combin or orgnize them with any trick.
+   of course, you can follow our ideas, and improve this code; if you get better, feel free let us know.
+   OLD:   
+      Train:  Y = f(X)
+      Test: Y = f(X)
+   OUR:
+      Train: Y = f(X,Y)   #one-by-one
+      Test: Y = f(X,?)  #vote
+   
 
-Let me explanation: (English & Chinese/中文)
+Let me explan: (English & Chinese/中文)
 1. this dataset and task, there are 10 classes.
    我们这个数据集和任务，有10个类需要去分类。
 2. there is a better network, can get 96.7%; in fact, we can use more tricks to get 97.0%.  not very difficult.
-   已经有一个（些）好的网络，能够达到96.7（参见数据集官网，我们前面提交的网络），事实上，我们能够试探一些其他的技巧达到97.%，不是特别难。
+   已经有一个（些）好的网络，能够达到96.7（参见数据集官网96.7，我们前面提交的网络96.7++），事实上，我们能够试探一些其他的技巧达到97.%，不是特别难。
    如果你这一步做不到，也不知道为啥，那么建议你先去补充基础部分。
    
 3. later, let us try our ideas：
@@ -58,7 +66,7 @@ if you guys understand our ideas, you can see, most of classes are SIMPLE to cla
 
 In Chinese: Why DIFFERENCE *** are most important? （if somebody has free-time, can translate it into English.）
 
-人的大脑高度并行，高度步骤与步骤直接解耦。
+人的大脑高度并行，高度的“步骤与步骤”直接解耦。
 把问题想象成10*10的PK。
 绝大部分类的PK是极其简单：几乎百分百。 好比区分你爸爸和你妈妈一样有信心: 100%。
 比较难的是，类似本数据集，4-6(the first class is 0)，有些衣服的区分，人几乎都不知道是个啥规则。（这也是这个数据集的牛逼或者不好的地方；牛逼就是要挑战你的算法，不好的地方我感觉和对随机化的东西做分类一样没有太大意义，只是考验了NN的拟合和记忆了能力。打比赛到最后，就看谁随机数牛逼/运气好，那个随机数恰好有比较好的对test-dataset的泛化能力。如果真正和的研究者，研究过4-6这种类的PK，就知道的我说的啥意思了。所以，我们理解，这个问题，99.9%就是上界了，好比mnist的99.97%）
