@@ -37,7 +37,7 @@ Let me explan: (English & Chinese/中文)
 5. how to get better score: 如何刷成绩？  
    subnet: 0-1:   achieve, >>> 99.*  
    ......  *-*:   achieve, >>> 99.*  
-   subnet: 2-6    difficult,  >96.7  (one-one-pk, is very easy vs. big-network, any trick you can use!) 一对一PK比一网搞全分类简单多了  
+   subnet: 2-6    difficult,  >96.7  (one-one-pk, is very easy vs. big-network, any trick you can use!) PK比一网分简单多了  
    ......  *-*:   achieve, >>> 99.*  
    subnet: 4-6    difficult,  >96.7  (one-one-pk, is very easy vs. big-network, any trick you can use!)  
    ......  *-*:   achieve, >>> 99.*  
