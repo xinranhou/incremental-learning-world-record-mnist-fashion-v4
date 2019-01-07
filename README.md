@@ -2,12 +2,56 @@
 
 accuracy score from 98.0 ~ 99.*
 
+key ideas: 
+   target/Y-decomposize by difficultly, most of subtask can archive 99.9+.
+   subnetwork picket, re-seed
+   subnetwork promote independently.
+   you can think this is a specilal type of ensemble, but we still think there are many difference.
+   the total parameters is NOT a problem, you can combin or orgnize them with any trick.
+
+Let me explanation: (English & Chinese/中文)
+1. this dataset and task, there are 10 classes.
+   我们这个数据集和任务，有10个类需要去分类。
+2. there is a better network, can get 96.7%; in fact, we can use more tricks to get 97.0%.  not very difficult.
+   已经有一个（些）好的网络，能够达到96.7（参加数据集官网，我们前面提交的网络），事实上，我们能够试探一些其他的技巧达到97.%，不是特别难。
+3. later, let us try our ideas：
+   接下来，让我们试试我们的做法：
+4. decompose the classifition task from one-network-ten-classes to n(a1+a(n-2))/2=10(1+8)/2=45 one-one-classification-nerworks.
+   分解分类任务，从一个大网络搞定10类，到“等差数据公式公式”算一下需要的两两PK的小网络组合。
+   before: 以前
+   X --> One-Network --> Y(0...9)
+   now: 现在
+   X --> 45-Difference-Mini-Network --> M((0,1),(0,2),...(1,2),...(8,9))  --> Vote-Routing/Or/Emsemble-Network  --> Y
+5. how to get better score: 如何刷成绩？
+   subnet: 0-1:   achieve, > 99.*
+   ......  *-*:   achieve, > 99.*
+   subnet: 2-6    difficult,  >96.7  (one-one-pk, is very easy vs. big-network, any trick you can use!) 一对一PK比一网络搞定全分类简单多了
+   ......  *-*:   achieve, > 99.*
+   subnet: 4-6    difficult,  >96.7  (one-one-pk, is very easy vs. big-network, any trick you can use!)
+   ......  *-*:   achieve, > 99.*
+   subnet: 8-9:   achieve, > 99.*
+   
+   Note: for A-pk-B network, if you give a C, almost it will give you a random result between A and B. It is OK for later voting.
+   注意：对于一个只认识A，B的网络，如果你给一个C，基本上会近似随机挑选的方式从A,B中选择,这是对后面的投票阶段来说，我不认识我就随机选。
+6. there answer is: 答案是：
+   give a test-sample,such as 8:
+   假设给一个测试样本比如8:
+   there are 9 subnetworks trained by *-9 will vote: (0,8)...(8,9), and, most of them will vote 8 with high-probability and has generalization-baseline.  
+   其中9个与于8区分的小网络，他们大部分都会高概率的投出8，这个泛化是由底线的。
+   there are rest 45-9 subnetworks will not vote 8 with high-probability.
+   其他45-9个网络与8无关的，基本也不会投出8来。
+7. so the final result will be better.
+   所以，最终结果比较好。
+   
+
+
 one of our ideas is: if the total task is difficult, we can use some simple sub-network to do, any combinition is OK(one-one, tree, etc.) we think human can use this ability, one of our brain's abilities is using neurals to flexible-organize under some biger framwork, not today's NN paradigm: overemphasize end-2-end in a whole network.
 
 if you guys understand our ideas, you can see, most of classes are SIMPLE to classify, we can use above we mentioned simplest FULL-CONNECTION to classify and get almost 99.9...9%. we can just focus on these classes PK(from difficult to simple) use ‘DIFFERENCE NN-Architecute，DIFFERENCE NN-Instances, DIFFERENCE NN-Instance-with RANDOM-SEED’ (This seed is MOST-IMPORTANT, not a joke.)：
 4-6
 2-6 4-6
 0-6
+
 In Chinese: Why DIFFERENCE *** are most important? （if somebody has free-time, can translate it into English.）
 
 人的大脑高度并行，高度步骤与步骤直接解耦。
