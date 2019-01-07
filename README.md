@@ -10,12 +10,13 @@ key ideas:
    the total parameters is NOT a problem, you can combin or orgnize them with any trick.
    of course, you can follow our ideas, and improve this code; if you get better, feel free let us know.
    OLD:   
-      Train:  Y = f(X)
-      Test: Y = f(X)
+      Train:  Y = f(X)  
+      Test: Y = f(X)  
    OUR:
-      Train: Y = f(X,Y)   #one-by-one
-      Test: Y = f(X,?)  #vote
-   
+      Train: Y = f(X,Y)   #one-by-one  
+      Test: Y = f(X,?)  #vote Y on ?
+
+   智能的核心之一，就是策略组织，将不确定性的高组织策略到确定性高的。
 
 Let me explan: (English & Chinese/中文)
 1. this dataset and task, there are 10 classes.
