@@ -34,13 +34,13 @@ Let me explan: (English & Chinese/中文)
    X --> 45-Difference-Mini-Network --> M((0,1),(0,2),...(1,2),...(8,9))  --> Vote-Routing/Or/Emsemble-Network  --> Y
    again: 45只是最直接的组合方式，可以使用任何组合或者其他技巧来减少这个类。另外，简单的类别的区分用的网络小多了；再另外，底层视觉特征的提取可以同用网络，在高层偏全连接的地方使用不同的网络；一句话，分解之后的网络，可以比大一统网络的参数量反而小很多。
 5. how to get better score: 如何刷成绩？
-   subnet: 0-1:   achieve, >>> 99.*
-   ......  *-*:   achieve, >>> 99.*
-   subnet: 2-6    difficult,  >96.7  (one-one-pk, is very easy vs. big-network, any trick you can use!) 一对一PK比一网络搞定全分类简单多了
-   ......  *-*:   achieve, >>> 99.*
-   subnet: 4-6    difficult,  >96.7  (one-one-pk, is very easy vs. big-network, any trick you can use!)
-   ......  *-*:   achieve, >>> 99.*
-   subnet: 8-9:   achieve, >>> 99.*
+   subnet: 0-1:   achieve, >>> 99.*  
+   ......  *-*:   achieve, >>> 99.*  
+   subnet: 2-6    difficult,  >96.7  (one-one-pk, is very easy vs. big-network, any trick you can use!) 一对一PK比一网搞全分类简单多了  
+   ......  *-*:   achieve, >>> 99.*  
+   subnet: 4-6    difficult,  >96.7  (one-one-pk, is very easy vs. big-network, any trick you can use!)  
+   ......  *-*:   achieve, >>> 99.*  
+   subnet: 8-9:   achieve, >>> 99.*  
    实际上：6-4，6-2是最难区分的，其次是4-2,其次是0和他们的组合。
    
    Note: for A-pk-B network, if you give a C, almost it will give you a random result between A and B. It is OK for later voting.
